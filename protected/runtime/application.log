@@ -1,0 +1,352 @@
+2013/08/12 11:17:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [14] unable to open database file' in /usr/share/yii-1.1.13/framework/db/CDbConnection.php:381
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /usr/share/yii-1.1.13/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /usr/share/yii-1.1.13/framework/base/CModule.php(387): CDbConnection->init()
+#3 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(442): CModule->getComponent('db')
+#4 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(451): MigrateCommand->getDbConnection()
+#5 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(482): MigrateCommand->getMigrationHistory(-1)
+#6 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(84): MigrateCommand->getNewMigrations()
+#7 [internal function]: MigrateCommand->actionUp(Array)
+#8 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#9 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#10 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#11 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#12 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#13 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#14 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#15 {main}
+---
+2013/08/12 11:29:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [14] unable to open database file' in /usr/share/yii-1.1.13/framework/db/CDbConnection.php:381
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /usr/share/yii-1.1.13/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /usr/share/yii-1.1.13/framework/base/CModule.php(387): CDbConnection->init()
+#3 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(442): CModule->getComponent('db')
+#4 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(451): MigrateCommand->getDbConnection()
+#5 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(482): MigrateCommand->getMigrationHistory(-1)
+#6 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(84): MigrateCommand->getNewMigrations()
+#7 [internal function]: MigrateCommand->actionUp(Array)
+#8 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#9 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#10 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#11 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#12 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#13 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#14 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#15 {main}
+---
+2013/08/13 10:57:57 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'AuthAssignment' (
+	"item_name" varchar2(256) NOT NULL,
+	"user_id" integer NOT NULL,
+	"bizrule" text,
+	"data" text,
+	primary key ('item_name','user_id'),
+	foreign key ('itemname') references 'AuthItem' ('name') on delete cascade on update cascade
+)
+2013/08/13 10:57:57 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 unknown column "itemname" in foreign key definition. The SQL statement executed was: CREATE TABLE 'AuthAssignment' (
+	"item_name" varchar2(256) NOT NULL,
+	"user_id" integer NOT NULL,
+	"bizrule" text,
+	"data" text,
+	primary key ('item_name','user_id'),
+	foreign key ('itemname') references 'AuthItem' ('name') on delete cascade on update cascade
+).
+2013/08/13 10:57:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 unknown column "itemname" in foreign key definition. The SQL statement executed was: CREATE TABLE 'AuthAssignment' (
+	"item_name" varchar2(256) NOT NULL,
+	"user_id" integer NOT NULL,
+	"bizrule" text,
+	"data" text,
+	primary key ('item_name','user_id'),
+	foreign key ('itemname') references 'AuthItem' ('name') on delete cascade on update cascade
+)' in /usr/share/yii-1.1.13/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/db/CDbCommand.php(1321): CDbCommand->execute()
+#1 /usr/share/yii-1.1.13/framework/db/CDbMigration.php(228): CDbCommand->createTable('AuthAssignment', Array, NULL)
+#2 /home/bluenight/www/proxy24/protected/migrations/m130813_084450_table_rbac.php(32): CDbMigration->createTable('AuthAssignment', Array)
+#3 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(385): m130813_084450_table_rbac->up()
+#4 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m130813_084450_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#10 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#11 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#12 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#13 {main}
+---
+2013/08/13 10:58:18 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'AuthItem' (
+	"name" varchar2(256) NOT NULL,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text,
+	PRIMARY KEY ('name')
+)
+2013/08/13 10:58:18 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 table 'AuthItem' already exists. The SQL statement executed was: CREATE TABLE 'AuthItem' (
+	"name" varchar2(256) NOT NULL,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text,
+	PRIMARY KEY ('name')
+).
+2013/08/13 10:58:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 table 'AuthItem' already exists. The SQL statement executed was: CREATE TABLE 'AuthItem' (
+	"name" varchar2(256) NOT NULL,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text,
+	PRIMARY KEY ('name')
+)' in /usr/share/yii-1.1.13/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/db/CDbCommand.php(1321): CDbCommand->execute()
+#1 /usr/share/yii-1.1.13/framework/db/CDbMigration.php(228): CDbCommand->createTable('AuthItem', Array, NULL)
+#2 /home/bluenight/www/proxy24/protected/migrations/m130813_084450_table_rbac.php(15): CDbMigration->createTable('AuthItem', Array)
+#3 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(385): m130813_084450_table_rbac->up()
+#4 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m130813_084450_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#10 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#11 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#12 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#13 {main}
+---
+2013/08/13 11:01:49 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'AuthItem' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" varchar2(256) NOT NULL,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text,
+	CONSTRAINTS u_authitem_name UNIQUE ('name')
+)
+2013/08/13 11:01:49 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "(": syntax error. The SQL statement executed was: CREATE TABLE 'AuthItem' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" varchar2(256) NOT NULL,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text,
+	CONSTRAINTS u_authitem_name UNIQUE ('name')
+).
+2013/08/13 11:01:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "(": syntax error. The SQL statement executed was: CREATE TABLE 'AuthItem' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" varchar2(256) NOT NULL,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text,
+	CONSTRAINTS u_authitem_name UNIQUE ('name')
+)' in /usr/share/yii-1.1.13/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/db/CDbCommand.php(1321): CDbCommand->execute()
+#1 /usr/share/yii-1.1.13/framework/db/CDbMigration.php(228): CDbCommand->createTable('AuthItem', Array, NULL)
+#2 /home/bluenight/www/proxy24/protected/migrations/m130813_084450_table_rbac.php(16): CDbMigration->createTable('AuthItem', Array)
+#3 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(385): m130813_084450_table_rbac->up()
+#4 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m130813_084450_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#10 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#11 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#12 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#13 {main}
+---
+2013/08/13 11:02:15 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'AuthItem' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" varchar2(256) NOT NULL,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text,
+	CONSTRAINTS 'u_authitem_name' UNIQUE ('name')
+)
+2013/08/13 11:02:15 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "(": syntax error. The SQL statement executed was: CREATE TABLE 'AuthItem' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" varchar2(256) NOT NULL,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text,
+	CONSTRAINTS 'u_authitem_name' UNIQUE ('name')
+).
+2013/08/13 11:02:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "(": syntax error. The SQL statement executed was: CREATE TABLE 'AuthItem' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" varchar2(256) NOT NULL,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text,
+	CONSTRAINTS 'u_authitem_name' UNIQUE ('name')
+)' in /usr/share/yii-1.1.13/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/db/CDbCommand.php(1321): CDbCommand->execute()
+#1 /usr/share/yii-1.1.13/framework/db/CDbMigration.php(228): CDbCommand->createTable('AuthItem', Array, NULL)
+#2 /home/bluenight/www/proxy24/protected/migrations/m130813_084450_table_rbac.php(16): CDbMigration->createTable('AuthItem', Array)
+#3 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(385): m130813_084450_table_rbac->up()
+#4 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m130813_084450_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#10 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#11 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#12 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#13 {main}
+---
+2013/08/13 11:04:41 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'AuthItem' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" varchar2(256) NOT NULL CONSTRAINTS UNIQUE ,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text
+)
+2013/08/13 11:04:41 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "CONSTRAINTS": syntax error. The SQL statement executed was: CREATE TABLE 'AuthItem' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" varchar2(256) NOT NULL CONSTRAINTS UNIQUE ,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text
+).
+2013/08/13 11:04:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "CONSTRAINTS": syntax error. The SQL statement executed was: CREATE TABLE 'AuthItem' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"name" varchar2(256) NOT NULL CONSTRAINTS UNIQUE ,
+	"type" integer NOT NULL,
+	"description" text,
+	"bizrule" text,
+	"data" text
+)' in /usr/share/yii-1.1.13/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/db/CDbCommand.php(1321): CDbCommand->execute()
+#1 /usr/share/yii-1.1.13/framework/db/CDbMigration.php(228): CDbCommand->createTable('AuthItem', Array, NULL)
+#2 /home/bluenight/www/proxy24/protected/migrations/m130813_084450_table_rbac.php(15): CDbMigration->createTable('AuthItem', Array)
+#3 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(385): m130813_084450_table_rbac->up()
+#4 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m130813_084450_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#10 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#11 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#12 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#13 {main}
+---
+2013/08/13 11:30:01 [error] [exception.CException] exception 'CException' with message 'Property "CConsoleApplication.rbac_db" is not defined.' in /usr/share/yii-1.1.13/framework/base/CComponent.php:130
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/base/CModule.php(105): CComponent->__get('rbac_db')
+#1 /home/bluenight/www/proxy24/protected/migrations/m130813_084450_table_rbac.php(7): CModule->__get('rbac_db')
+#2 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(385): m130813_084450_table_rbac->up()
+#3 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m130813_084450_...')
+#4 [internal function]: MigrateCommand->actionUp(Array)
+#5 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#6 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#7 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#8 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#9 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#10 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#11 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#12 {main}
+---
+2013/08/13 11:30:45 [error] [exception.CException] exception 'CException' with message 'Object configuration must be an array containing a "class" element.' in /usr/share/yii-1.1.13/framework/YiiBase.php:193
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#1 /usr/share/yii-1.1.13/framework/base/CModule.php(103): CModule->getComponent('rbac_db')
+#2 /home/bluenight/www/proxy24/protected/migrations/m130813_084450_table_rbac.php(7): CModule->__get('rbac_db')
+#3 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(385): m130813_084450_table_rbac->up()
+#4 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m130813_084450_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#10 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#11 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#12 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#13 {main}
+---
+2013/08/13 11:31:52 [error] [exception.CException] exception 'CException' with message 'Object configuration must be an array containing a "class" element.' in /usr/share/yii-1.1.13/framework/YiiBase.php:193
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#1 /usr/share/yii-1.1.13/framework/base/CModule.php(103): CModule->getComponent('rbac_db')
+#2 /home/bluenight/www/proxy24/protected/migrations/m130813_084450_table_rbac.php(7): CModule->__get('rbac_db')
+#3 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(385): m130813_084450_table_rbac->up()
+#4 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m130813_084450_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#10 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#11 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#12 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#13 {main}
+---
+2013/08/13 11:41:45 [error] [exception.CException] exception 'CException' with message 'Object configuration must be an array containing a "class" element.' in /usr/share/yii-1.1.13/framework/YiiBase.php:193
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#1 /usr/share/yii-1.1.13/framework/base/CModule.php(103): CModule->getComponent('rbac_db')
+#2 /home/bluenight/www/proxy24/protected/migrations/m130813_084450_table_rbac.php(7): CModule->__get('rbac_db')
+#3 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(385): m130813_084450_table_rbac->up()
+#4 /usr/share/yii-1.1.13/framework/cli/commands/MigrateCommand.php(109): MigrateCommand->migrateUp('m130813_084450_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#8 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#9 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#10 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#11 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#12 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#13 {main}
+---
+2013/08/13 13:27:03 [error] [php] Array to string conversion (/home/bluenight/www/proxy24/protected/commands/RbacCommand.php:11)
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): RbacCommand->run()
+#1 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run()
+#2 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#3 /usr/share/yii-1.1.13/framework/yiic.php(33): CConsoleApplication->run()
+#4 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once()
+#5 /home/bluenight/www/proxy24/protected/yiic(4): require_once()
+
+2013/08/13 13:33:53 [error] [php] Object of class CAuthItem could not be converted to string (/home/bluenight/www/proxy24/protected/commands/RbacCommand.php:19)
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): RbacCommand->run()
+#1 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run()
+#2 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#3 /usr/share/yii-1.1.13/framework/yiic.php(33): CConsoleApplication->run()
+#4 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once()
+#5 /home/bluenight/www/proxy24/protected/yiic(4): require_once()
+
+2013/08/13 13:39:49 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 19 column name is not unique. The SQL statement executed was: INSERT INTO 'auth_item' ("name", "type", "description", "bizrule", "data") VALUES (:name, :type, :description, :bizrule, :data).
+2013/08/13 13:39:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 19 column name is not unique. The SQL statement executed was: INSERT INTO 'auth_item' ("name", "type", "description", "bizrule", "data") VALUES (:name, :type, :description, :bizrule, :data)' in /usr/share/yii-1.1.13/framework/db/CDbCommand.php:357
+Stack trace:
+#0 /usr/share/yii-1.1.13/framework/db/CDbCommand.php(1247): CDbCommand->execute(Array)
+#1 /usr/share/yii-1.1.13/framework/web/auth/CDbAuthManager.php(444): CDbCommand->insert('auth_item', Array)
+#2 /usr/share/yii-1.1.13/framework/web/auth/CAuthManager.php(72): CDbAuthManager->createAuthItem('amateur', 2, '', NULL, NULL)
+#3 /home/bluenight/www/proxy24/protected/commands/RbacCommand.php(13): CAuthManager->createRole('amateur')
+#4 [internal function]: RbacCommand->actionCreateItem('role', 'amateur')
+#5 /usr/share/yii-1.1.13/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(RbacCommand), Array)
+#6 /usr/share/yii-1.1.13/framework/console/CConsoleCommandRunner.php(67): CConsoleCommand->run(Array)
+#7 /usr/share/yii-1.1.13/framework/console/CConsoleApplication.php(91): CConsoleCommandRunner->run(Array)
+#8 /usr/share/yii-1.1.13/framework/base/CApplication.php(169): CConsoleApplication->processRequest()
+#9 /usr/share/yii-1.1.13/framework/yiic.php(33): CApplication->run()
+#10 /home/bluenight/www/proxy24/protected/yiic.php(7): require_once('/usr/share/yii-...')
+#11 /home/bluenight/www/proxy24/protected/yiic(4): require_once('/home/bluenight...')
+#12 {main}
+---
+2013/08/13 13:41:51 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 19 column name is not unique. The SQL statement executed was: INSERT INTO 'auth_item' ("name", "type", "description", "bizrule", "data") VALUES (:name, :type, :description, :bizrule, :data).
+2013/08/13 14:10:15 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 19 column name is not unique. The SQL statement executed was: INSERT INTO 'auth_item' ("name", "type", "description", "bizrule", "data") VALUES (:name, :type, :description, :bizrule, :data).
+2013/08/13 14:10:15 [error] [app.migration] CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 19 column name is not unique. The SQL statement executed was: INSERT INTO 'auth_item' ("name", "type", "description", "bizrule", "data") VALUES (:name, :type, :description, :bizrule, :data)
+2013/08/13 14:18:07 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 19 column name is not unique. The SQL statement executed was: INSERT INTO 'auth_item' ("name", "type", "description", "bizrule", "data") VALUES (:name, :type, :description, :bizrule, :data).
+2013/08/13 14:18:07 [error] [app.migration] CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 19 column name is not unique. The SQL statement executed was: INSERT INTO 'auth_item' ("name", "type", "description", "bizrule", "data") VALUES (:name, :type, :description, :bizrule, :data)
+2013/08/13 14:23:00 [error] [app.migration] Cannot add an item of type "role" to an item of type "task".
