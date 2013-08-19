@@ -27,13 +27,16 @@ class Password {
     /**
      * @param $input The string to check.
      * @param $input_stored The input stored.
-     * @return bool TRUE if the hashed of $input == $password otherwise FALSE.
+     * @return boolean TRUE if the hashed of $input == $password otherwise FALSE.
      */
     public static function check($input, $input_stored) {
         $crypted_password = crypt($input, $input_stored);
         return $crypted_password === $input_stored;
     }
-
+    /**
+     * [randomSalt description]
+     * @return string The string returned is the salt used for hashing the password.
+     */
     private static function randomSalt() {
         $salt = "";
         for($i=0; $i<10; $i++) {
@@ -41,5 +44,4 @@ class Password {
         }
         return $salt;
     }
-
 }

@@ -9,7 +9,6 @@ class m130813_084450_table_rbac extends CDbMigration
         // However it is possible to add additional fields !
 
         $this->setDbConnection(Yii::app()->rbac_db);
-
         $this->createTable('auth_item', array(
             'name' => 'varchar2(256) NOT NULL',
             'type' => 'integer NOT NULL',
@@ -46,7 +45,6 @@ class m130813_084450_table_rbac extends CDbMigration
 	public function down()
 	{
         $this->setDbConnection(Yii::app()->rbac_db);
-
         $this->dropTable('auth_assignment');
         $this->dropTable('auth_item_child');
         $this->dropTable('auth_item');

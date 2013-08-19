@@ -1,3 +1,0 @@
-2013/08/13 14:10:15 [error] [app.migration] CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 19 column name is not unique. The SQL statement executed was: INSERT INTO 'auth_item' ("name", "type", "description", "bizrule", "data") VALUES (:name, :type, :description, :bizrule, :data)
-2013/08/13 14:18:07 [error] [app.migration] CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 19 column name is not unique. The SQL statement executed was: INSERT INTO 'auth_item' ("name", "type", "description", "bizrule", "data") VALUES (:name, :type, :description, :bizrule, :data)
-2013/08/13 14:23:00 [error] [app.migration] Cannot add an item of type "role" to an item of type "task".
