@@ -7,22 +7,27 @@
 
 use application\components as MyComponents;
 
-class PasswordTest extends CTestCase {
+class PasswordTest extends CTestCase
+{
 
-    public function setUp() {
-
-    }
-
-    public function tearDown() {
+    public function setUp()
+    {
 
     }
 
-    public function testCrypt() {
+    public function tearDown()
+    {
+
+    }
+
+    public function testCrypt()
+    {
         $hashed_password = MyComponents\Password::crypt("hello the world");
         $this->assertTrue(isset($hashed_password));
     }
 
-    public function testCheck() {
+    public function testCheck()
+    {
         $hashed_password = MyComponents\Password::crypt("hello the world");
         $this->assertTrue(MyComponents\Password::check("hello the world", $hashed_password));
 

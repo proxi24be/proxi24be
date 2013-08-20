@@ -1,59 +1,31 @@
 <?php
-/**
- * User: TRANN
- * Date: 8/13/13
- * Time: 11:34 AM
- */
 
-class RbacConnectionTest extends CDbTestCase {
+Yii::import('system.test.CDbFixtureManager');
 
-    public function setUp() {
-        $this->initTables();
+class RbacConnectionTest extends CDbTestCase
+{
+    public $fixtures_rbac = array(
+        array('auth_item' => 'AuthItem'),
+        array('auth_assignment' => 'AuthAssignment'),
+        array('auth_item_child' => 'AuthItemChild'),
+    );
+
+    public function setUp()
+    {
+        $fixture_manager = new CDbFixtureManager();
+        $fixture_manager->connectionID = 'rbac_db';
+        $fixture_manager->basePath = Yii::app()->basePath.DIRECTORY_SEPARATOR.
+                    'tests'.DIRECTORY_SEPARATOR.'fixtures';
+        foreach($this->fixtures_rbac as $fixture)
+            $fixture_manager->load($fixture);
     }
 
-    public function tearDown() {
-        $this->resetTables();
-    }
-
-    public function testConnection() {
-        $connection = Yii::app()->rbac_db;
-        $this->assertNotNull($connection);
-    }
-
-    public function testAccess() {
+    public function testAccess()
+    {
         $auth_manager = Yii::app()->authManager;
-        $this->assertEquals(TRUE, $auth_manager->isAssigned("reader", 1));
-        $this->assertEquals(TRUE, $auth_manager->checkAccess("reader.public.read", 1));
-        $this->assertEquals(TRUE, $auth_manager->checkAccess("reader.public.write", 1));
+        $this->assertEquals(true, $auth_manager->isAssigned("admin", 2));
+        $this->assertEquals(true, $auth_manager->isAssigned("amateur", 1));
+        $this->assertEquals(true, $auth_manager->checkAccess('public_read', 2));
+        $this->assertEquals(true, $auth_manager->checkAccess('admin_delete', 2));
     }
-
-    private function initTables() {
-        try {
-            $auth_manager = Yii::app()->authManager;
-            $auth_manager->createRole("reader");
-            $auth_manager->createTask("task_reader");
-            $auth_manager->addItemChild("reader", 'task_reader');
-            $auth_manager->assign("reader", 1);
-            $auth_manager->createOperation("reader.public.read");
-            $auth_manager->createOperation("reader.public.write");
-
-            $auth_manager->addItemChild("reader", "reader.public.read");
-            $auth_manager->addItemChild("task_reader", "reader.public.write");
-
-        }
-        catch (CDbException $e) {
-            Yii::log($e->getMessage(), 'error', 'app.migration');
-        }
-        catch (Exception $e) {
-            Yii::log($e->getMessage(), 'error', 'app.migration');
-        }
-    }
-
-    private function resetTables() {
-        $connection = Yii::app()->rbac_db;
-        $connection->createCommand("delete from auth_item;")->execute();
-        $connection->createCommand("delete from auth_item_child;")->execute();
-        $connection->createCommand("delete from auth_assignment;")->execute();
-    }
-
 }

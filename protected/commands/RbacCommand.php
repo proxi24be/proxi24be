@@ -5,9 +5,10 @@
  * Time: 1:23 PM
  */
 
-class RbacCommand extends CConsoleCommand {
-
-    public function actionCreateInitialItem() {
+class RbacCommand extends CConsoleCommand
+{
+    public function actionCreateInitialItem()
+    {
         try {
 
             $auth_manager = Yii::app()->authManager;
@@ -38,8 +39,9 @@ class RbacCommand extends CConsoleCommand {
             Yii::log($e->getMessage(), 'error', 'app.migration');
         }
     }
-
-    public function actionCreateItem($type, $name, $description='') {
+    
+    public function actionCreateItem($type, $name, $description='')
+    {
         $auth_manager = Yii::app()->authManager;
         try {
             if ($type == 'role')
@@ -60,14 +62,16 @@ class RbacCommand extends CConsoleCommand {
         }
     }
 
-    public function actionDisplayRole() {
+    public function actionDisplayRole()
+    {
         $auth_manager = Yii::app()->authManager;
         foreach($auth_manager->getRoles() as $key => $value) {
             echo "$key" . PHP_EOL;
         }
     }
 
-    public function actionClearTables() {
+    public function actionClearTables()
+    {
         $connection = Yii::app()->rbac_db;
         $connection->createCommand("delete from auth_item;")->execute();
         $connection->createCommand("delete from auth_item_child;")->execute();

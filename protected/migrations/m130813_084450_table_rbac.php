@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 class m130813_084450_table_rbac extends CDbMigration
 {
@@ -46,7 +46,6 @@ class m130813_084450_table_rbac extends CDbMigration
 	public function down()
 	{
         $this->setDbConnection(Yii::app()->rbac_db);
-
         $this->dropTable('auth_assignment');
         $this->dropTable('auth_item_child');
         $this->dropTable('auth_item');
@@ -63,3 +62,5 @@ class m130813_084450_table_rbac extends CDbMigration
 	}
 	*/
 }
+
+

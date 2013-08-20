@@ -7,7 +7,6 @@
 
 class User extends CActiveRecord
 {
-
     public static function model($className=__CLASS__)
     {
         return parent::model($className);
@@ -18,7 +17,8 @@ class User extends CActiveRecord
         return 'user';
     }
 
-    public function rules() {
+    public function rules() 
+    {
         return array(
           array('first_name, last_name, email, locked, password, last_connection', 'required'),
         );
