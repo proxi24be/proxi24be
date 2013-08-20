@@ -1,9 +1,4 @@
 <?php
-/**
- * User: TRANN
- * Date: 8/12/13
- * Time: 1:56 PM
- */
 
 use application\components as MyComponents;
 

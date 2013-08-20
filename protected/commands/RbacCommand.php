@@ -1,10 +1,6 @@
 <?php
-/**
- * User: TRANN
- * Date: 8/13/13
- * Time: 1:23 PM
- */
 
+<<<<<<< HEAD
 class RbacCommand extends CConsoleCommand
 {
     public function actionCreateInitialItem()
@@ -40,6 +36,10 @@ class RbacCommand extends CConsoleCommand
         }
     }
     
+=======
+class RbacCommand extends CConsoleCommand {
+
+>>>>>>> c694dcee2dbdc53ae92ae99b68320982b53dc478
     public function actionCreateItem($type, $name, $description='')
     {
         $auth_manager = Yii::app()->authManager;
@@ -65,7 +65,7 @@ class RbacCommand extends CConsoleCommand
     public function actionDisplayRole()
     {
         $auth_manager = Yii::app()->authManager;
-        foreach($auth_manager->getRoles() as $key => $value) {
+        foreach($auth_manager->getRoles() as $key => $value){
             echo "$key" . PHP_EOL;
         }
     }
