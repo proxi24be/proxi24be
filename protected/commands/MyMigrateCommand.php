@@ -47,12 +47,10 @@ class MyMigrateCommand extends CConsoleCommand
 	        $auth_manager->createRole("admin");
 
 	        $auth_manager->createTask("read public ads");
-	        $auth_manager->createTask("edit own ads",'', $rbac_business_rule['edit own ads']);
+	        $auth_manager->createTask("edit own ads");
 
 	        $auth_manager->createOperation('read_ads');
-	        $auth_manager->createOperation('create_own_ads');
-	        $auth_manager->createOperation('update_own_ads');
-	        $auth_manager->createOperation('delete_own_ads');
+	        $auth_manager->createOperation('crud_own_ads', 'The owner is able to do whatever she/he wants (CRUD) with her/his ads', $rbac_business_rule['edit own ads']);
 
 	        $auth_manager->addItemChild('pro', 'authenticated');
 	        $auth_manager->addItemChild('amateur', 'authenticated');
@@ -60,9 +58,7 @@ class MyMigrateCommand extends CConsoleCommand
 	        $auth_manager->addItemChild('authenticated', 'edit own ads');
 
 	        //The owner can do whatever he/she wants with his/her ads.
-	        $auth_manager->addItemChild('edit own ads', 'create_own_ads');
-	        $auth_manager->addItemChild('edit own ads', 'update_own_ads');
-	        $auth_manager->addItemChild('edit own ads', 'delete_own_ads');
+	        $auth_manager->addItemChild('edit own ads', 'crud_own_ads');
 		}
 		catch(Exception $e)
 		{
