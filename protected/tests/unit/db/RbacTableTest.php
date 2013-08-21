@@ -67,5 +67,4 @@ class RbacTableTest extends CDbTestCase
 		$rows = $this->_rbac_db->createCommand('select * from auth_item_child;')->queryAll();
 		print_r($rows);
 	}
-
 }
