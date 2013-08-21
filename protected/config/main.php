@@ -8,6 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Proxy24',
+	'language'=> isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en', 
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -59,6 +60,23 @@ return array(
             'class'=>'CDbConnection',
             'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/dev/rbac.dev.sqlite',
         ),
+        'clientScript'=>array(
+                    'scriptMap'=>array(
+                        'jquery.js'=>false,
+                    ),
+                    'packages'=>array(
+                        'bootstrap'=>array(
+                            'basePath'=> 'webroot.framework.bootstrap',
+                            'css'=>array('css/bootstrap.css'),
+                            'js'=>array('js/bootstrap.js'),
+                        ),
+                        'jquery'=>array(
+	                        'basePath'=>'webroot.javascript.jquery',
+	                        //'baseUrl'=>"//ajax.googleapis.com/ajax/libs/jquery/1.7.1/",
+	                        'js'=>array('jquery-1.8.2.min.js'),
+                            ),
+                	),
+        ), // end clientscript
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
