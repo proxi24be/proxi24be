@@ -15,7 +15,6 @@ return CMap::mergeArray(
                 'class'=>'CDbConnection',
 				'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/test/rbac.test.sqlite',
 			),
-
 		),
 	)
 );

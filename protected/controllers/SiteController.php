@@ -12,4 +12,10 @@ class SiteController extends Controller
 		setcookie('lang', $lang);
 		$this->redirect('index');
 	}
+
+	public function actionAuthenticate()
+	{
+	
+	}
+
 }

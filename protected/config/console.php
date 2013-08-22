@@ -26,6 +26,11 @@ return array(
             'class'=>'CDbConnection',
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/dev/rbac.dev.sqlite',
 		),
+		'i18n_db'=>array(
+            'class'=>'CDbConnection',
+			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/dev/i18n.dev.sqlite',
+		),
+
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
