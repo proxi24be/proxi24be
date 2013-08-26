@@ -29,7 +29,6 @@ return array(
 		),
 		*/
 	),
-
 	// application components
 	'components'=>array(
 		'user'=>array(
@@ -38,6 +37,7 @@ return array(
 		),
 		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
+			'showScriptName'=>false,
 			'urlFormat'=>'path',
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
@@ -64,7 +64,6 @@ return array(
             'class'=>'CDbConnection',
             'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/dev/i18n.dev.sqlite',
         ),
-
         'clientScript'=>array(
                     'scriptMap'=>array(
                         'jquery.js'=>false,
@@ -99,13 +98,11 @@ return array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
 				),
-
 				// uncomment the following to show log messages on web pages
-				/*
 				array(
 					'class'=>'CWebLogRoute',
 				),
-				*/
+				
 			),
 		),
 	),
