@@ -1,5 +1,7 @@
 <?php
 
+namespace yii\bootstrap;
+
 abstract class FormManager
 {
 	protected $_html;
