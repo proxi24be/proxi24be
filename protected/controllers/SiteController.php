@@ -24,9 +24,12 @@ class SiteController extends Controller
                     $this->render('error', $error);
         }
 	}
+<<<<<<< HEAD
 
 	public function actionLogin()
 	{
 		$this->redirect('index');
 	}
+=======
+>>>>>>> 1eb0e07b0a373fe1a27218b2b3bcd4081fc80370
 }

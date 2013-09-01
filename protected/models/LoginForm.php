@@ -40,6 +40,28 @@ class LoginForm extends CFormModel
 		);
 	}
 
+	public function getBusinessAttributes()
+	{
+		$bs_attribute = new BsAttribute();
+		$bs_attribute->setType('username', 'text');
+		$bs_attribute->setType('password', 'password');
+		$bs_attribute->setHelpMessage('username', 'Please help me');
+		$bs_attribute->setHelpMessage('password', 'The password is case sensitive');
+		return $bs_attribute;
+	}
+
+	public function behaviors()
+	{
+		return array(
+			'BsFormBehavior' => array(
+				'class' => 'application.ext.bootstrap.BsFormBehavior',
+			),
+			'AttributeFormBehavior' => array(
+				'class' => 'application.ext.bootstrap.AttributeFormBehavior'
+			),
+		);
+	}
+
 	/**
 	 * Authenticates the password.
 	 * This is the 'authenticate' validator as declared in rules().
