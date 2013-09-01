@@ -1,8 +1,10 @@
 <style>
+
 form div.error
 {
 	margin-top: 5px;
 }
+
 </style>
 
 <?php 

@@ -28,6 +28,7 @@ class GenerateHtml
 				{
 					if($tag =='htmlOptions')
 						$html .= '<'. $level_html .' '. GenerateHtml::_generateAttribute($attribute) . '>' . PHP_EOL;
+					// Recursive call.
 					else
 						$html .= GenerateHtml::_generate($attribute, $tag);
 				}

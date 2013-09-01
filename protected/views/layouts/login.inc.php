@@ -13,7 +13,7 @@
       </div> <!-- /.model-body -->
       <div class="modal-footer">
         <?= Yii::t('login', 'dont_have_an_account') . ' ' . 
-          CHtml::link(Yii::t('login', 'sign_up'), 'site/register');?>
+          CHtml::link(Yii::t('login', 'sign_up'), 'register');?>
       </div>
     </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
