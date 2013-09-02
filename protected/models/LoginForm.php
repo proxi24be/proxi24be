@@ -52,14 +52,23 @@ class LoginForm extends CFormModel
 		);
 	}
 
-	public function getBusinessAttributes()
+	public function initBusinessAttributes()
 	{
-		$bs_attribute = new BsInputAttribute();
-		$bs_attribute->setAttribute('username', 'text', BsInputAttribute::TYPE_HTML);
-		$bs_attribute->setAttribute('password', 'password', BsInputAttribute::TYPE_HTML);
-		$bs_attribute->setAttribute('password', Yii::t('login', 'help_message_password'), BsInputAttribute::HELP_MESSAGE);
-		return $bs_attribute;
+		$this->bs_input_attribute = new BsInputAttribute();
+		$this->bs_input_attribute->setAttribute('username', 'text', BsInputAttribute::TYPE_HTML);
+		$this->bs_input_attribute->setAttribute('password', 'password', BsInputAttribute::TYPE_HTML);
+		$this->bs_input_attribute->setAttribute(
+				'password', 
+				Yii::t('login', 'help_message_password'), 
+				BsInputAttribute::HELP_MESSAGE
+			);
 	}
+
+	protected function afterConstruct()
+    {
+        $this->initBusinessAttributes();
+        parent::afterConstruct();
+    }
 
 	/**
 	 * Authenticates the password.
