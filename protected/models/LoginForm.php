@@ -40,26 +40,25 @@ class LoginForm extends CFormModel
 		);
 	}
 
-	public function getBusinessAttributes()
-	{
-		$bs_attribute = new BsAttribute();
-		$bs_attribute->setType('username', 'text');
-		$bs_attribute->setType('password', 'password');
-		$bs_attribute->setHelpMessage('username', 'Please help me');
-		$bs_attribute->setHelpMessage('password', 'The password is case sensitive');
-		return $bs_attribute;
-	}
-
 	public function behaviors()
 	{
 		return array(
 			'BsFormBehavior' => array(
-				'class' => 'application.ext.bootstrap.BsFormBehavior',
+				'class' => 'ext.bootstrap.BsFormBehavior',
 			),
 			'AttributeFormBehavior' => array(
-				'class' => 'application.ext.bootstrap.AttributeFormBehavior'
+				'class' => 'ext.bootstrap.AttributeFormBehavior'
 			),
 		);
+	}
+
+	public function getBusinessAttributes()
+	{
+		$bs_attribute = new BsInputAttribute();
+		$bs_attribute->setAttribute('username', 'text', BsInputAttribute::TYPE_HTML);
+		$bs_attribute->setAttribute('password', 'password', BsInputAttribute::TYPE_HTML);
+		$bs_attribute->setAttribute('password', Yii::t('login', 'help_message_password'), BsInputAttribute::HELP_MESSAGE);
+		return $bs_attribute;
 	}
 
 	/**
@@ -70,7 +69,7 @@ class LoginForm extends CFormModel
 	{
 		if(!$this->hasErrors())
 		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
+			$this->_identity = new UserIdentity($this->username,$this->password);
 			if(!$this->_identity->authenticate())
 				$this->addError('password','Incorrect username or password.');
 		}

@@ -4,6 +4,6 @@ class AttributeFormBehavior extends CModelBehavior
 {
 	public function getBusinessAttributes()
 	{
-		return new BsAttribute();
+		return new BsInputAttribute();
 	}
 }

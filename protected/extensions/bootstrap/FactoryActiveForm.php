@@ -39,6 +39,11 @@ class FactoryActiveForm
 			return '';
 	}
 
+	public function getErrorMessage($attribute)
+	{
+		return  $this->_form->error($this->_model, $attribute); 
+	}
+
 	private function _attributeExist($attribute)
 	{
 		if(empty($attribute))
