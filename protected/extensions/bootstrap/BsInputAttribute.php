@@ -5,6 +5,7 @@ class BsInputAttribute
 	const HELP_MESSAGE = 'help';
 	const TYPE_HTML = 'type';
 	const PLACE_HOLDER = 'place_holder';
+	const DATA = 'data';
 
 	private $_attributes = array();
 

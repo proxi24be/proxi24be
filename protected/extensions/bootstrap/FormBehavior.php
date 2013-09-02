@@ -11,7 +11,7 @@ abstract class FormBehavior extends CModelBehavior
 		$this->_controller = $controller;
 	}
 
-	public final function printForm(array $attributes, array $active_form = array(), array $submit_button = array())
+	public final function printForm(array $active_form = array(), array $submit_button = array())
 	{
 		$owner = $this->getOwner();
 		$bs_attribute = $owner->getBusinessAttributes();
@@ -22,6 +22,7 @@ abstract class FormBehavior extends CModelBehavior
 		// Create the factory object.
 		$this->_factory_form = new FactoryActiveForm($form, $owner);
 		// The content of the form.
+		$attributes = $bs_attribute->getAttributes();
 		foreach($attributes as $attribute)
 		{
 			$html ='';

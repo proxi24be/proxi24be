@@ -12,7 +12,6 @@ form div.error
 $login_form = new LoginForm();
 $login_form->setBaseController($this);
 $login_form->printForm(
-	array('username', 'password'),
  	array(
 	    'id'=>'user-form',
 	    'enableClientValidation'=>true,
