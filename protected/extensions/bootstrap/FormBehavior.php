@@ -30,7 +30,8 @@ abstract class FormBehavior extends CModelBehavior
 			$html .= $this->_factory_form->getInput(
 					$attribute, 
 					$bs_attribute->getAttribute($attribute, BsInputAttribute::TYPE_HTML), 
-					array('class'=>'form-control')
+					array('class'=>'form-control'),
+					$bs_attribute->getAttribute($attribute, BsInputAttribute::DATA)
 				);
 			$help_message = $bs_attribute->getAttribute($attribute, BsInputAttribute::HELP_MESSAGE);
 			if(isset($help_message))
