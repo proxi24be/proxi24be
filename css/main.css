@@ -7,3 +7,8 @@ form div.error
 {
 	margin-top: 5px;
 }
+
+div.alert
+{
+	margin-top: 5px;
+}

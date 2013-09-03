@@ -19,14 +19,14 @@ return array(
 	),
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'business plan',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
-		*/
+		'authenticate', 'i18n',
+		
 	),
 	// application components
 	'components'=>array(
@@ -77,7 +77,11 @@ return array(
 	                        'basePath'=>'webroot.javascript.jquery',
 	                        //'baseUrl'=>"//ajax.googleapis.com/ajax/libs/jquery/1.7.1/",
 	                        'js'=>array('jquery-1.8.2.min.js'),
-                            ),
+                        ),
+                        'main-css'=>array(
+	                        'basePath'=>'webroot.css',
+	                        'css' => array('main.css'),
+                        ),
                 	),
         ), // end clientscript
 		'errorHandler'=>array(

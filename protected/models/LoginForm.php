@@ -44,10 +44,10 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			'BsFormBehavior' => array(
-				'class' => 'ext.bootstrap.BsFormBehavior',
+				'class' => 'ext.bootstrap.form.BsFormBehavior',
 			),
 			'AttributeFormBehavior' => array(
-				'class' => 'ext.bootstrap.AttributeFormBehavior'
+				'class' => 'ext.bootstrap.form.AttributeFormBehavior'
 			),
 		);
 	}

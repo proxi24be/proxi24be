@@ -28,10 +28,10 @@ class Message extends I18NActiveRecord
     {
         return array(
             'BsFormBehavior' => array(
-                'class' => 'ext.bootstrap.BsFormBehavior',
+                'class' => 'ext.bootstrap.form.BsFormBehavior',
             ),
             'AttributeFormBehavior' => array(
-                'class' => 'ext.bootstrap.AttributeFormBehavior'
+                'class' => 'ext.bootstrap.form.AttributeFormBehavior'
             ),
         );
     }
@@ -45,5 +45,4 @@ class Message extends I18NActiveRecord
         $this->bs_input_attribute->setAttribute('language', $data, BsInputAttribute::DATA);
         $this->bs_input_attribute->setAttribute('translation', 'text', BsInputAttribute::TYPE_HTML);
     }
-
 }

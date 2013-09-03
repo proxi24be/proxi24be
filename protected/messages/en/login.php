@@ -1,6 +1,6 @@
 <?php
 return array(
-	'submit'=>'submit',
+	'submit'=>'Submit',
 	'username'=>'Email address',
 	'password'=>'Password',
 	'dont_have_an_account'=>"Don't have an account ?",

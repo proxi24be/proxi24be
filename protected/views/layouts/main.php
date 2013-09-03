@@ -5,6 +5,7 @@
     <?php 
         Yii::app()->clientScript->registerPackage('jquery');
         Yii::app()->clientScript->registerPackage('bootstrap');
+        Yii::app()->clientScript->registerPackage('main-css');
     ?>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -23,6 +24,7 @@
         <?php echo $content; ?>
 
     </div>
+    
     <?php 
         if(Yii::app()->user->isGuest)
             include('login.inc.php');

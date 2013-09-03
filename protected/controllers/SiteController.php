@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('ext.bootstrap.*');
+Yii::import('ext.bootstrap.form.*');
 
 class SiteController extends Controller
 {

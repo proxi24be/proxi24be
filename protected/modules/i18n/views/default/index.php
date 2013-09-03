@@ -1,18 +1,28 @@
-
 <div class="container">
 	<div class="row">
-		<div class="col-xs-1 col-md-6">
+		<div class="col-md-3">
+			<?php
+				$source_message->printForm(
+				 	array(
+					    'id'=>'souce_message_form',
+					    'action'=> Yii::app()->createAbsoluteUrl('i18n/sourceMessage/create'),
+					    'enableClientValidation'=>true,
+					    'clientOptions'=>array('validateOnSubmit'=>true),
+					    'errorMessageCssClass'=>'error alert alert-warning',
+					),
+					array(BsFormBehavior::SUBMIT_BUTTON => Yii::t('login', 'submit'))
+				);
+			?>
+			<?php
+				BsFlashAlert::printFlashAlert('creation success', 'alert-success');
+				BsFlashAlert::printFlashAlert('creation fail', 'alert-danger');
+			?>
+		</div>
+		<div class="col-md-9">
 <?php
 
-$source_message->printForm(
- 	array(
-	    'id'=>'message-form',
-	    'enableClientValidation'=>true,
-	    'clientOptions'=>array('validateOnSubmit'=>true),
-	    'errorMessageCssClass'=>'error alert alert-danger',
-	),
-	array(BsFormBehavior::SUBMIT_BUTTON => Yii::t('login', 'submit'))
-);
+$bs_table_manager = new BsTableManager($models, array('id' ,'category', 'message'));
+$bs_table_manager->printTable('table');
 
 ?>
 		</div>
