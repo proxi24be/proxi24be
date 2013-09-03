@@ -7,8 +7,19 @@
       </div>
       <div class="modal-body">
       <?php 
-        // adding the login form.
-        $this->renderPartial('_login_form'); 
+            // adding the login form.
+            $login_form = new LoginForm();
+            $login_form->setBaseController($this);
+            $login_form->printForm(
+              array(
+                  'id'=>'user-form',
+                  'enableClientValidation'=>true,
+                  'clientOptions'=>array('validateOnSubmit'=>true),
+                  'errorMessageCssClass'=>'error alert alert-warning',
+                'action'=>Yii::app()->createUrl('site/authenticate'),
+              ),
+              array(BsFormBehavior::SUBMIT_BUTTON => Yii::t('login', 'submit'))
+            );
       ?>
       </div> <!-- /.model-body -->
       <div class="modal-footer">
