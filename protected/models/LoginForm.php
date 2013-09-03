@@ -52,7 +52,7 @@ class LoginForm extends CFormModel
 		);
 	}
 
-	public function initBusinessAttributes()
+	public function defaultBusinessAttributes()
 	{
 		$this->bs_input_attribute = new BsInputAttribute();
 		$this->bs_input_attribute->setAttribute('username', 'text', BsInputAttribute::TYPE_HTML);
@@ -63,12 +63,6 @@ class LoginForm extends CFormModel
 				BsInputAttribute::HELP_MESSAGE
 			);
 	}
-
-	protected function afterConstruct()
-    {
-        $this->initBusinessAttributes();
-        parent::afterConstruct();
-    }
 
 	/**
 	 * Authenticates the password.
