@@ -19,17 +19,23 @@ return array(
 	),
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		'gii'=>array(
-			'class'=>'system.gii.GiiModule',
-			'password'=>'business plan',
-			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
-		),
-		'authenticate', 'i18n',
-		
+		// 'gii'=>array(
+		// 	'class'=>'system.gii.GiiModule',
+		// 	'password'=>'business plan',
+		// 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
+		// 	'ipFilters'=>array('127.0.0.1','::1'),
+		// ),
+		'user', 'i18n',
 	),
 	// application components
 	'components'=>array(
+		'assetManager'=>array(
+            // set to TRUE for dev otherwise FALSE.
+            'forceCopy'=>true
+        ),
+		// 'cache'=>array(
+  //           'class'=>'system.caching.CApcCache'
+  //       ),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>false,
@@ -77,6 +83,10 @@ return array(
 	                        'basePath'=>'webroot.javascript.jquery',
 	                        //'baseUrl'=>"//ajax.googleapis.com/ajax/libs/jquery/1.7.1/",
 	                        'js'=>array('jquery-1.8.2.min.js'),
+                        ),
+                        'angularjs'=>array(
+	                        'basePath'=>'webroot.framework.angularjs',
+	                        'js'=>array('angular.min.js'),
                         ),
                         'main-css'=>array(
 	                        'basePath'=>'webroot.css',

@@ -1,6 +1,7 @@
 <?php
 
 Yii::import('ext.bootstrap.form.*');
+Yii::import('application.modules.user.models.*');
 
 class SiteController extends Controller
 {

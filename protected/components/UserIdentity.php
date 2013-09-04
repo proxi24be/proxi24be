@@ -5,6 +5,9 @@
  * It contains the authentication method that checks if the provided
  * data can identity the user.
  */
+
+use application\components as MyComponent;
+
 class UserIdentity extends CUserIdentity
 {
 	/**
@@ -17,17 +20,26 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$users=array(
-			// username => password
-			'demo'=>'demo',
-			'admin'=>'admin',
-		);
-		if(!isset($users[$this->username]))
+		if(!isset($this->username))
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		else
-			$this->errorCode=self::ERROR_NONE;
+		{
+			$user = $this->_getUser($this->username);
+			if(isset($user))
+			{
+				if(MyComponents\Password::check($this->password, $user->password))
+					$this->errorCode=self::ERROR_NONE;	
+				else
+					$this->errorCord=self::ERROR_PASSWORD_INVALID;
+			}
+			else
+				$this->errorCode=self::ERROR_USERNAME_INVALID;
+		}
 		return !$this->errorCode;
+	}
+
+	private function _getUser($username)
+	{
+		return User::model()->find('email = :email', array(':email'=>$username));
 	}
 }

@@ -8,10 +8,10 @@
     	'enableClientValidation'=>true,
       	'clientOptions'=>array('validateOnSubmit'=>true),
     	'errorMessageCssClass'=>'error alert alert-warning',
-		'action'=>Yii::app()->createUrl('authenticate/register/create'),
+		'action'=>Yii::app()->createUrl('user/register/create'),
   	),
   	array(BsFormBehavior::SUBMIT_BUTTON => Yii::t('user', 'submit'))
-	);
+);
 ?>
 		</div>
 	</div>

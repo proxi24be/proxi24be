@@ -2,9 +2,10 @@
 
 Yii::import('ext.bootstrap.form.*');
 Yii::import('ext.bootstrap.table.*');
-yii::import('ext.bootstrap.alert.*');
+Yii::import('ext.bootstrap.alert.*');
 
-class DefaultController extends I18NController
+
+class DefaultController extends \I18NController
 {
 	public function actionIndex()
 	{
