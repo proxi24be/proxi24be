@@ -1,10 +1,10 @@
 <?php
 
 Yii::import('application.ext.bootstrap.*');
-require_once('FormManager.php');
-require_once('BsFormManager.php');
 
-use yii\bootstrap as Bootstrap;
+// require_once('FormManager.php');
+// require_once('BsFormManager.php');
+// use yii\bootstrap as Bootstrap;
 
 class FormManagerTest extends CTestCase
 {
@@ -13,7 +13,7 @@ class FormManagerTest extends CTestCase
 
 	public function setUp()
 	{
-		$this->_form_manager = new Bootstrap\BsFormManager();
+		$this->_form_manager = new BsFormManager();
 		$this->_map = array();
 	}
 
