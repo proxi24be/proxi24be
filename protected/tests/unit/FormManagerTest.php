@@ -1,6 +1,12 @@
 <?php
 
 Yii::import('application.ext.bootstrap.*');
+<<<<<<< HEAD
+=======
+
+require_once('FormManager.php');
+require_once('BsFormManager.php');
+>>>>>>> 56590e810f979e335b296bd8c795896776967d8e
 
 // require_once('FormManager.php');
 // require_once('BsFormManager.php');
@@ -19,7 +25,6 @@ class FormManagerTest extends CTestCase
 
 	public function testInstance()
 	{
-		echo Yii::getPathOfAlias('yii_bootstrap') . PHP_EOL;
 		$this->assertNotNull($this->_form_manager);
 	}
 }

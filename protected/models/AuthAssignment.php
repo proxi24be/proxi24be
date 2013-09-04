@@ -1,4 +1,5 @@
 <?php
+
 class AuthAssignment extends RbacActiveRecord
 {
     public static function model($className=__CLASS__)

@@ -78,4 +78,21 @@ class MyMigrateCommand extends CConsoleCommand
 		$command = sprintf('cp %s/data/dev/rbac.dev.sqlite %s/data/test/rbac.test.sqlite', $pwd, $pwd);
 		exec($command);
 	}
+
+	public function actionInitI18n()
+	{
+		try
+		{
+			$connection = Yii::app()->i18n_db;
+			$connection->createCommand("delete from language;")->execute();
+			$connection->createCommand("insert into language('language') values('fr');")->execute();
+			$connection->createCommand("insert into language('language') values('en');")->execute();
+			$connection->createCommand("insert into language('language') values('nl');")->execute();
+			echo 'operation completed.' . PHP_EOL; 
+		}
+		catch(Exception $e)
+		{
+			echo $e->getMessage() . PHP_EOL;
+		}
+	}
 }

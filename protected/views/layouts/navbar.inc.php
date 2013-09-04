@@ -29,7 +29,7 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
       <li><a data-toggle="modal" href="#myLoginForm"><?= Yii::t('navbar', 'login');?></a></li>
-      <li><a href="#"><?= Yii::t('navbar', 'sign_up');?></a></li>
+      <li><a data-toggle="modal" href="#myRegisterForm"><?= Yii::t('navbar', 'sign_up');?></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <span class="glyphicon glyphicon-globe"></span> <?= Yii::t('navbar', 'languages');?> <b class="caret"></b></a>

@@ -7,4 +7,5 @@ return array(
 	'sign_up'=>"Sign up",
 	'placeholder_password'=>'Please type your password',
 	'placeholder_username'=>'Please type your email',
+	'help_message_password' => 'Het passwoord is case-sensitive' ,
 );

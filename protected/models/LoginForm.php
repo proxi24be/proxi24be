@@ -24,6 +24,7 @@ class LoginForm extends CFormModel
 			array('username, password', 'required'),
 			// For the convenience the username expected is the email.
 			array('username', 'email'),
+			array('password', 'length', 'min'=>8),
 			// password needs to be authenticated
 			array('password', 'authenticate'),
 		);
@@ -40,26 +41,28 @@ class LoginForm extends CFormModel
 		);
 	}
 
-	public function getBusinessAttributes()
-	{
-		$bs_attribute = new BsAttribute();
-		$bs_attribute->setType('username', 'text');
-		$bs_attribute->setType('password', 'password');
-		$bs_attribute->setHelpMessage('username', 'Please help me');
-		$bs_attribute->setHelpMessage('password', 'The password is case sensitive');
-		return $bs_attribute;
-	}
-
 	public function behaviors()
 	{
 		return array(
 			'BsFormBehavior' => array(
-				'class' => 'application.ext.bootstrap.BsFormBehavior',
+				'class' => 'ext.bootstrap.form.BsFormBehavior',
 			),
 			'AttributeFormBehavior' => array(
-				'class' => 'application.ext.bootstrap.AttributeFormBehavior'
+				'class' => 'ext.bootstrap.form.AttributeFormBehavior'
 			),
 		);
+	}
+
+	public function defaultBusinessAttributes()
+	{
+		$this->bs_input_attribute = new BsInputAttribute();
+		$this->bs_input_attribute->setAttribute('username', 'text', BsInputAttribute::TYPE_HTML);
+		$this->bs_input_attribute->setAttribute('password', 'password', BsInputAttribute::TYPE_HTML);
+		$this->bs_input_attribute->setAttribute(
+				'password', 
+				Yii::t('login', 'help_message_password'), 
+				BsInputAttribute::HELP_MESSAGE
+			);
 	}
 
 	/**
@@ -70,30 +73,9 @@ class LoginForm extends CFormModel
 	{
 		if(!$this->hasErrors())
 		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
+			$this->_identity = new UserIdentity($this->username, $this->password);
 			if(!$this->_identity->authenticate())
-				$this->addError('password','Incorrect username or password.');
+				$this->addError('password','Incorrect email address or password.');
 		}
-	}
-
-	/**
-	 * Logs in the user using the given username and password in the model.
-	 * @return boolean whether login is successful
-	 */
-	public function login()
-	{
-		if($this->_identity===null)
-		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
-			$this->_identity->authenticate();
-		}
-		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
-		{
-			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
-			Yii::app()->user->login($this->_identity,$duration);
-			return true;
-		}
-		else
-			return false;
 	}
 }

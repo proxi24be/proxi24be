@@ -7,4 +7,5 @@ return array(
 	'sign_up'=>"S'enregistrer",
 	'placeholder_password'=>'Entrez votre mot de passe',
 	'placeholder_username'=>'Entrez votre adresse email',
+	'help_message_password' => 'Faites attention aux majuscules/minuscules' ,
 );
