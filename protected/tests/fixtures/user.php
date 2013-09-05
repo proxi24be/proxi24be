@@ -1,6 +1,6 @@
 <?php
 
-use application\components as MyComponents;
+use application\modules\user\components as MyComponents;
 
 return array(
 

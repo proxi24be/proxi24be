@@ -6,7 +6,7 @@
  * data can identity the user.
  */
 
-use application\components as MyComponent;
+namespace application\modules\user\components;
 
 class UserIdentity extends CUserIdentity
 {
@@ -27,7 +27,7 @@ class UserIdentity extends CUserIdentity
 			$user = $this->_getUser($this->username);
 			if(isset($user))
 			{
-				if(MyComponents\Password::check($this->password, $user->password))
+				if(Password::check($this->password, $user->password))
 					$this->errorCode=self::ERROR_NONE;	
 				else
 					$this->errorCord=self::ERROR_PASSWORD_INVALID;
@@ -40,6 +40,6 @@ class UserIdentity extends CUserIdentity
 
 	private function _getUser($username)
 	{
-		return User::model()->find('email = :email', array(':email'=>$username));
+		return \User::model()->find('email = :email', array(':email'=>$username));
 	}
 }
