@@ -1,8 +1,10 @@
 <?php
-class m130812_091938_user extends CDbMigration
+
+class m130906_124444_user extends CDbMigration
 {
 	public function up()
 	{
+		$this->dropTable('user');
 		$this->createTable('user',
 			array(
 			'id' => 'pk',
@@ -14,12 +16,13 @@ class m130812_091938_user extends CDbMigration
 			'last_connection'=>'integer NOT NULL',
 			'locked'=>'integer NOT NULL',
 			'password'=>'varchar2(256) NOT NULL',
+			"constraint u_email unique ('email')",
 			));
 	}
 
 	public function down()
 	{
-		$this->dropTable("user");
+		$this->dropTable('user');
 	}
 
 	/*
