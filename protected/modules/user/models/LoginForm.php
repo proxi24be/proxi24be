@@ -1,11 +1,13 @@
 <?php
 
+use application\modules\user\components as MyComponents;
+
 /**
  * LoginForm class.
  * LoginForm is the data structure for keeping
  * user login form data. It is used by the 'login' action of 'SiteController'.
  */
-class LoginForm extends CFormModel
+class LoginForm extends \CFormModel
 {
 	public $username;
 	public $password;
@@ -46,6 +48,18 @@ class LoginForm extends CFormModel
 		return array(
 			'BsFormBehavior' => array(
 				'class' => 'ext.bootstrap.form.BsFormBehavior',
+				'active_form'=> array
+				(
+		            'id'=>'user-form',
+		            'enableClientValidation'=>true,
+		            'clientOptions'=>array('validateOnSubmit'=>true),
+		            'errorMessageCssClass'=>'alert alert-warning',
+		            'action'=>Yii::app()->createUrl('user/login/read'),
+		      	),
+		      	'submit_button'=> array
+		      	(
+		      		BsFormBehavior::SUBMIT_BUTTON => Yii::t('login', 'submit')
+	      		),
 			),
 			'AttributeFormBehavior' => array(
 				'class' => 'ext.bootstrap.form.AttributeFormBehavior'
@@ -73,7 +87,7 @@ class LoginForm extends CFormModel
 	{
 		if(!$this->hasErrors())
 		{
-			$this->_identity = new UserIdentity($this->username, $this->password);
+			$this->_identity = new MyComponents\UserIdentity($this->username, $this->password);
 			if(!$this->_identity->authenticate())
 				$this->addError('password','Incorrect email address or password.');
 		}

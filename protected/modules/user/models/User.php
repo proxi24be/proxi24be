@@ -33,8 +33,6 @@ class User extends CActiveRecord
 
     public function behaviors()
     {
-        // Unfortunately the attribute field is case sensitive.
-        // See Yii framework doc for more details.
         return array(
             'CTimestampBehavior' => array(
                 'class' => 'zii.behaviors.CTimestampBehavior',
@@ -45,6 +43,18 @@ class User extends CActiveRecord
             ),
             'BsFormBehavior' => array(
                 'class' => 'ext.bootstrap.form.BsFormBehavior',
+                'active_form' => array
+                (
+                    'id'=>'register-form',
+                    'enableClientValidation'=>true,
+                    'clientOptions'=>array('validateOnSubmit'=>true),
+                    'errorMessageCssClass'=>'error alert alert-warning',
+                    'action'=>Yii::app()->createUrl('user/register/create'),
+                ),
+                'submit_button' => array
+                (
+                    BsFormBehavior::SUBMIT_BUTTON => Yii::t('user', 'submit')
+                )
             ),
             'AttributeFormBehavior' => array(
                 'class' => 'ext.bootstrap.form.AttributeFormBehavior'

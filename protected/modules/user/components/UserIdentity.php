@@ -8,7 +8,7 @@
 
 namespace application\modules\user\components;
 
-class UserIdentity extends CUserIdentity
+class UserIdentity extends \CUserIdentity
 {
 	/**
 	 * Authenticates a user.

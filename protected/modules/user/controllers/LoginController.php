@@ -7,7 +7,6 @@ class LoginController extends Controller
 	public function actionRead()
 	{
 		$login_form = new LoginForm();
-		$login_form->setBaseController($this);
 		if (isset($_POST['LoginForm']))
 		{
 			$login_form->attributes = $_POST['LoginForm'];

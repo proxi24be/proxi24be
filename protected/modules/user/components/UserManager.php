@@ -12,7 +12,7 @@ class UserManager extends \CComponent
 	 * function in order to check the reason of the failure.
 	 * 
 	 * @param  array  $params A map containing the information about the user.
-	 * @return boolean true if operation success otherwise false.
+	 * @return mixed Return an instance of user if the user has been created otherwise false.
 	 */
 	public function createUser(array $params)
 	{
@@ -53,7 +53,7 @@ class UserManager extends \CComponent
 		else
 			return false;
 	}
-
+	
 	public function updatePassword($username, $new_password)
     {
 		try

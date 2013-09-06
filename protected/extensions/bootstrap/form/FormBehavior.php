@@ -2,23 +2,20 @@
 
 abstract class FormBehavior extends CModelBehavior
 {
-	protected $_controller;
+	public $active_form = array();
+	public $submit_button = array();
 	protected $_factory_form;
 	const SUBMIT_BUTTON = 'submit_button';
 
-	public function setBaseController(CBaseController $controller)
-	{
-		$this->_controller = $controller;
-	}
-
-	public final function printForm(array $active_form = array(), array $submit_button = array())
+	public final function printForm()
 	{
 		$owner = $this->getOwner();
 		$bs_attribute = $owner->getBusinessAttributes();
 		if(!$bs_attribute instanceof BsInputAttribute)
 			throw new Exception('$bs_attribute is not an instance of BsInputAttribute !');
+
 		// Equivalent to <form> + html attribute if any.
-		$form =  $this->_controller->beginWidget('CActiveForm', $active_form);
+		$form =  Yii::app()->getController()->beginWidget('CActiveForm', $this->active_form);
 		// Create the factory object.
 		$this->_factory_form = new FactoryActiveForm($form, $owner);
 		// The content of the form.
@@ -40,8 +37,8 @@ abstract class FormBehavior extends CModelBehavior
 			$html .= $this->_factory_form->getErrorMessage($attribute); 
 			echo $this->decorAttribute($html);
 		}
-		$this->_displaySubmitButton($submit_button);
-		$this->_controller->endWidget();	
+		$this->_displaySubmitButton($this->submit_button);
+		Yii::app()->getController()->endWidget();	
 	}
 
 	private function _displaySubmitButton(array $submit_button)
