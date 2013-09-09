@@ -31,9 +31,12 @@ class RegisterController extends Controller
 				// creation fail.
 				if(strpos($user_manager->getErrorMessage(), 'email is not unique'))
 				{
-					Yii::app()->user->setFlash('account already exist', 'The account already exist');
+					Yii::app()->user->setFlash('account_already_exist', 'You are already registered.');
 					$this->actionRead();
 				}
+				// Could be an error validation or an unexepected exception.
+				Yii::log($user_manager->getErrorMessage(), 'error','app.registration.register');
+				throw new CHttpException(400, 'Sorry your request is invalid');
 			}
 		}
 		else

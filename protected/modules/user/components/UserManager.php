@@ -17,7 +17,11 @@ class UserManager extends \CComponent
 	public function createUser(array $params)
 	{
 		$user = new \User();
-		$params['locked'] = 0;
+		// By default the account is locked.
+		// That simply means the user cannot do some actions.
+		// By doing that we prevent some spam account: the registered user
+		// will need to active his/her account.
+		$params['locked'] = 1;
 		$params['last_connection'] = time();
 		$user->attributes = $params;
 		try
