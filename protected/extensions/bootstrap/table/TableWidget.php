@@ -3,21 +3,19 @@
 class TableWidget extends CWidget
 {
 	public $class;
-	public $ths;
 	public $id;
-	public $models;
-	public $tds;
+	public $ths = array();
+	public $models = array();
+	public $tds = array();
 
 	public function init()
 	{
 		$html = sprintf('<table id="%s" class="%s">', $this->id, $this->class);
 		$html .= '<thead>';
-		if(isset($this->ths))
-			$html .= $this->_getHeaders();
+		$html .= $this->_getHeaders();
 		$html .= '</thead>';
 		$html .= '<tbody>';
-		if(isset($this->models) && (isset($this->tds)))
-			$html .= $this->_getBody();
+		$html .= $this->_getBody();
 		echo $html;
 	}
 
