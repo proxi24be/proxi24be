@@ -1,29 +1,23 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-3">
-			<?php
-				$source_message->printForm(
-				 	array(
-					    'id'=>'souce_message_form',
-					    'action'=> Yii::app()->createAbsoluteUrl('i18n/sourceMessage/create'),
-					    'enableClientValidation'=>true,
-					    'clientOptions'=>array('validateOnSubmit'=>true),
-					    'errorMessageCssClass'=>'error alert alert-warning',
-					),
-					array(BsFormBehavior::SUBMIT_BUTTON => Yii::t('login', 'submit'))
-				);
-			?>
-			<?php
-				BsFlashAlert::printFlashAlert('creation success', 'alert-success');
-				BsFlashAlert::printFlashAlert('creation fail', 'alert-danger');
-			?>
-		</div>
-		<div class="col-md-9">
+		<div class="col-md-5 col-md-offset-2">
 <?php
+	$this->beginWidget('ext.bootstrap.table.TableWidget', 
+		array(
+			'ths'=> array('id' ,'category', 'message', 'action'),
+			'class'=> 'table',
+			'id' => 'table-message-id',
+		));
+?>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><button class='btn btn-info' ng-click='create(dataToCollect.new_message)'><span class="glyphicon glyphicon-plus"></span> add</button></td>
+</tr>
 
-$bs_table_manager = new BsTableManager($models, array('id' ,'category', 'message'));
-$bs_table_manager->printTable('table');
-
+<?php
+	$this->endWidget();
 ?>
 		</div>
 	</div>

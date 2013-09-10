@@ -1,9 +1,16 @@
 <?php
 
+use application\modules\i18n\components as myComponents;
+
 Yii::import('ext.bootstrap.form.*');
 
-class SourceMessageController extends I18NController
+class SourceMessageController extends myComponents\CRUDController
 {
+	public function actionIndex()
+	{
+		
+	}
+
 	public function actionCreate()
 	{
 		$source_message = new SourceMessage();
