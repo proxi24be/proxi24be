@@ -3,8 +3,10 @@
 use application\modules\user\components as MyComponents;
 
 Yii::import('ext.bootstrap.form.*');
-class UserAdminController extends MyComponents\AdminController
+class UserAdminController extends MyComponents\CRUDController
 {
+	protected $_model_name = 'User';
+
 	public function actionIndex()
 	{
 		$this->render('application');
@@ -13,11 +15,5 @@ class UserAdminController extends MyComponents\AdminController
 	public function actionDefault()
 	{
 		$this->renderPartial('user_list');
-	}
-
-	public function actionRead()
-	{
-		$models = User::model()->findAll();
-		echo CJSON::encode($models);
 	}
 }

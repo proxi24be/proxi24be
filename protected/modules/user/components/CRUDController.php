@@ -2,9 +2,13 @@
 
 namespace application\modules\user\components;
 
-class AdminController extends \Controller
+/**
+ *  This class performs crud operation.
+ */
+class CRUDController extends \Controller
 {
 	public $layout = 'column2';
+    protected $_model_name;
 
     public function filters()
     {
@@ -30,5 +34,25 @@ class AdminController extends \Controller
                 'message'=>'Access Denied.',
             ),
         );
+    }
+
+    public function beforeAction($action)
+    {
+        if(!isset($this->_model_name))
+            throw new \CHttpException(501, 'The varialble model name has not been initialized !');
+        else
+            return parent::beforeAction($action);
+    }
+
+    public function actionRead()
+    {
+        $model = $this->_model_name;
+        $models = $model::model()->findAll();
+        echo \CJSON::encode($models);
+    }
+
+    public function actionCreate()
+    {
+
     }
 }

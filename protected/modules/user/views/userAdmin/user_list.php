@@ -3,7 +3,7 @@
 
 	$this->beginWidget('ext.bootstrap.table.TableWidget', 
 		array(
-			'ths'=> array('email', 'password', 'action'),
+			'ths'=> array('email', 'password', 'edit', 'delete'),
 			'class'=> 'table',
 			'id' => 'table-user-id',
 		));
@@ -14,6 +14,9 @@
     <td>{{user.password}}</td>
     <td>
     	<button class='btn btn-warning'><span class="glyphicon glyphicon-edit"></span> edit</button>
+    </td>
+    <td>
+    	<button class='btn btn-danger' ng-click="delete(user)"><span class="glyphicon glyphicon-minus"></span> delete</button>
     </td>
 </tr>
 

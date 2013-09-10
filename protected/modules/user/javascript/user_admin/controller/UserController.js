@@ -8,6 +8,12 @@ UserAdmin.controller('UserController',
                     $scope.db.users = response.data;
                 });
         }
+
+        $scope.delete = function(email)
+        {
+            
+        }
+
         //init start.
         $scope.dataToCollect = {};
         $scope.db = {};
