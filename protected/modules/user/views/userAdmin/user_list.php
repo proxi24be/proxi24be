@@ -1,15 +1,20 @@
 <div class="col-md-6 col-xs-1">
 <?php
+    $user->printForm();
+?>
+</div>
 
+<div class="col-md-6 col-xs-1">
+<?php
 	$this->beginWidget('ext.bootstrap.table.TableWidget', 
 		array(
-			'ths'=> array('email', 'password', 'edit', 'delete'),
+			'ths'=> array('Full name', 'Email', 'Password', 'Edit', 'Delete'),
 			'class'=> 'table',
 			'id' => 'table-user-id',
 		));
 ?>
-
 <tr ng-repeat = 'user in db.users'>
+    <td>{{user.first_name +' '+ user.last_name}}</td>
     <td>{{user.email}}</td>
     <td>{{user.password}}</td>
     <td>
@@ -21,11 +26,8 @@
 </tr>
 
 <?php
-
 	$this->endWidget();
-
 ?>
-
 </div>
 
 

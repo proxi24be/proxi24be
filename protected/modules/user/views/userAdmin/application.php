@@ -7,7 +7,8 @@
 
 var myConfig = 
 {
-	angularUrl : "<?= Yii::app()->createAbsoluteUrl('user/userAdmin/'); ?>"
+	angularUrl : "<?= Yii::app()->createAbsoluteUrl('user/userAdmin/'); ?>",
+	userUrl : "<?= Yii::app()->createAbsoluteUrl('user/user/'); ?>"
 }
 
 </script>

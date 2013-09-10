@@ -70,4 +70,13 @@ class User extends CActiveRecord
         $this->bs_input_attribute->setAttribute('email', 'text', BsInputAttribute::TYPE_HTML);
         $this->bs_input_attribute->setAttribute('password', 'password', BsInputAttribute::TYPE_HTML);
     }
+
+    public function limit($limit=10)
+    {
+        $this->getDbCriteria()->mergeWith(array(
+            'order'=>'create_time DESC',
+            'limit'=>$limit,
+        ));
+        return $this;
+    }
 }

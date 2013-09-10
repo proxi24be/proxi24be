@@ -1,13 +1,11 @@
 <?php
 
-use ext\helper\crud\CRUDController;
 Yii::import('ext.bootstrap.form.*');
 
-class UserAdminController extends CRUDController
+class UserAdminController extends Controller
 {
-	protected $_model_name = 'User';
 	public $layout = 'column2';
-	
+
 	public function actionIndex()
 	{
 		$this->render('application');
@@ -15,6 +13,10 @@ class UserAdminController extends CRUDController
 
 	public function actionDefault()
 	{
-		$this->renderPartial('user_list');
+		$user = new User();
+		if(isset($_REQUEST['User']))
+			$user->attributes = $_REQUEST['User'];
+
+		$this->renderPartial('user_list', array('user'=>$user));
 	}
 }

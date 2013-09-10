@@ -19,12 +19,13 @@ class CRUDController extends \Controller
 
     public function actionRead()
     {
+        $model = $this->_model_name;
         // useful for paging.
         if(isset($_REQUEST['limit']))
-            $limit = $_REQUEST['limit'];
+            $models = $model::model()->limit($_REQUEST['limit'])->findAll();
+        else
+            $models = $model::model()->findAll();
 
-        $model = $this->_model_name;
-        $models = $model::model()->findAll();
         echo \CJSON::encode($models);
     }
 
@@ -42,7 +43,7 @@ class CRUDController extends \Controller
 
     public function actionUpdate()
     {
-        
+
     }
 
     public function actionDelete()
@@ -57,7 +58,7 @@ class CRUDController extends \Controller
             return $_POST[$this->_model_name];
         else
         {
-            $params = \CJSON::decode('php://input', true);
+            $params = \CJSON::decode(file_get_contents('php://input'), true);
             if(isset($params))
                 return $params;
             else
