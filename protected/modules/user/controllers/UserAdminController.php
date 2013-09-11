@@ -11,12 +11,29 @@ class UserAdminController extends Controller
 		$this->render('application');
 	}
 
-	public function actionDefault()
+	public function actionEditUser()
+	{
+		$this->render('application');
+	}
+
+	public function actionAddUser()
+	{
+		$this->render('application');
+	}
+
+	public function actionGetUsers()
+	{
+		$this->renderPartial('user_list');
+	}
+
+	public function actionWelcome()
+	{
+		$this->renderPartial('welcome');
+	}
+
+	public function actionGetUserForm()
 	{
 		$user = new User();
-		if(isset($_REQUEST['User']))
-			$user->attributes = $_REQUEST['User'];
-
-		$this->renderPartial('user_list', array('user'=>$user));
+		$this->renderPartial('/register/register_form', array('user'=>$user));
 	}
 }

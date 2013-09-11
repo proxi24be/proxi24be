@@ -93,6 +93,10 @@ return array(
 	                        'basePath'=>'webroot.css',
 	                        'css' => array('main.css'),
                         ),
+                        'helper'=>array(
+                        	'basePath'=>'application.js.helper',
+                        	'js'=> array('bs_helper.js'),
+                    	)
                 	),
         ), // end clientscript
 		'errorHandler'=>array(

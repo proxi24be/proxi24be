@@ -1,7 +1,5 @@
 <?php
 
-use application\modules\user\components as MyComponents;
-
 Yii::import('ext.bootstrap.form.*');
 
 class RegisterController extends Controller
@@ -22,17 +20,13 @@ class RegisterController extends Controller
 			$user_manager = new MyComponents\UserManager();
 			$user = $user_manager->createUser($_POST['User']);
 			if($user !== false)
-			{
-				// creation success.
-				echo "Your user has been created successfully.";
-			}
+				RequestResponse::printSuccess();
 			else
 			{
 				// creation fail.
 				if(strpos($user_manager->getErrorMessage(), 'email is not unique'))
 				{
 					Yii::app()->user->setFlash('account_already_exist', 'You are already registered.');
-					$this->actionRead();
 				}
 				// Could be an error validation or an unexepected exception.
 				Yii::log($user_manager->getErrorMessage(), 'error','app.registration.register');

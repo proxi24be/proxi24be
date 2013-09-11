@@ -32,23 +32,83 @@ class CRUDController extends \Controller
     public function actionCreate()
     {
         $params = $this->_getParameters();
-        $model = $this->_model_name;
-        $active_record = new $model();
-        $active_record->attributes = $params;
-        if($active_record->save())
-            echo \CJSON::encode(array('result'=>'success'));
-        else
-            echo \CJSON::encode($active_record->getErrors());
+        try
+        {
+            $model = $this->_model_name;
+            $active_record = new $model();
+            $active_record->attributes = $params;
+            if($active_record->save())
+                RequestResponse::printSuccess();
+            else
+                throw new \CDbException(print_r($active_record->getErrors(), true));
+        }
+        catch(\CDbException $e)
+        {
+            throw new \CHttpException(400, $e->getMessage());
+        }
+        catch(\Exception $e)
+        {
+            throw new \CHttpException(500, $e->getMessage());
+        }
     }
 
     public function actionUpdate()
     {
+        $parameters = $this->_getParameters();
+        try
+        {
+            if(!isset($parameters['id']))
+                throw new \Exception('missing parameters id');
 
+            $model = $this->_model_name;
+            $active_record = $model::model()->findByPk($parameters['id']);
+            if($active_record == null)
+                throw new \Exception('the record does not exist.');
+            
+            // massive assignment.
+            $active_record->attributes = $parameters;
+
+            if($active_record->save())
+                RequestResponse::printSuccess();
+            else
+                throw new \CDbException(print_r($active_record->getErrors(), true));
+        }
+        catch(\CDbException $e)
+        {
+            throw new \CHttpException(400, $e->getMessage());
+        }
+        catch(\Exception $e)
+        {
+            throw new \CHttpException(500, $e->getMessage());
+        }
     }
 
     public function actionDelete()
     {
+        $parameters = $this->_getParameters();
+        try
+        {
+            if(!isset($parameters['id']))
+                throw new \Exception('missing parameters id');
 
+            $model = $this->_model_name;
+            $active_record = $model::model()->findByPk($parameters['id']);
+            if($active_record == null)
+                throw new \Exception('the record does not exist.');
+            
+            if($active_record->delete())
+                RequestResponse::printSuccess();
+            else
+                throw new \CDbException(print_r($active_record->getErrors(), true));
+        }
+        catch(\CDbException $e)
+        {
+            throw new \CHttpException(400, $e->getMessage());
+        }
+        catch(\Exception $e)
+        {
+            throw new \CHttpException(500, $e->getMessage());
+        }   
     }
 
     private function _getParameters()
@@ -62,7 +122,7 @@ class CRUDController extends \Controller
             if(isset($params))
                 return $params;
             else
-                throw new \CHttpException(400, 'Invalid request!');
+                throw new \CHttpException(400, 'Bad request!');
         }
     }
 }

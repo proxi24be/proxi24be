@@ -9,17 +9,26 @@ UserAdmin.controller('UserController',
                 });
         }
 
-        $scope.create = function(new_user)
+        $scope.update = function(user)
         {
-            UserModel.create($http, new_user)
-                .then(function(response){
-                    console.log(response.data);
+            UserModel.update($http, user)
+                .success(function(data, status){
+                    console.log(data);
+                })
+                .error(function(data, status){
+                     console.log(data);
                 });
         }
 
-        $scope.delete = function(email)
+        $scope.delete = function(user)
         {
-            
+            UserModel.delete($http, user)
+                .success(function(data, status){
+                    $scope.read();
+                })
+                .error(function(data, status){
+                    console.log(data);
+                });
         }
 
         //init start.

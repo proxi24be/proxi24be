@@ -13,6 +13,7 @@
         Yii::app()->clientScript->registerPackage('jquery');
         Yii::app()->clientScript->registerPackage('bootstrap');
         Yii::app()->clientScript->registerPackage('main-css');
+        Yii::app()->clientScript->registerPackage('helper');
     ?>
   </head>
   <body>

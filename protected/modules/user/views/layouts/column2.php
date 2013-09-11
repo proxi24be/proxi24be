@@ -15,8 +15,7 @@
 									'label'=>'USER ADMINISTRATION', 
 									'itemOptions'=>array('class'=>'dropdown-header')
 								),
-		                        array('label'=>'Edit user', 'url'=>array('/user/userAdmin/index')),
-		                        array('label'=>'Other action', 'url'=>array('#')),
+		                        array('label'=>'Edit user', 'url'=>array('/user/userAdmin/#/application/editUser')),
 							)
 					)
 				);

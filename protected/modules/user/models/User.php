@@ -49,7 +49,7 @@ class User extends CActiveRecord
                     'enableClientValidation'=>true,
                     'clientOptions'=>array('validateOnSubmit'=>true),
                     'errorMessageCssClass'=>'error alert alert-warning',
-                    'action'=>Yii::app()->createUrl('user/register/create'),
+                    'action'=>Yii::app()->createUrl('user/user/create'),
                 ),
                 'submit_button' => array
                 (

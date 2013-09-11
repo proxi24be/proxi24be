@@ -5,6 +5,7 @@ namespace application\modules\user\components;
 class UserManager extends \CComponent
 {
 	private $_error_message;
+	private $_errors = array();
 
 	/**
 	 * The function will create user and return true if the user has been created
@@ -37,8 +38,9 @@ class UserManager extends \CComponent
 					return $user;
 			}
 			// If the program reaches here it means a validation error 
-			// has occured.			
-			throw new \Exception(print_r($user->getErrors(), true));
+			// has occured.
+			$this->_errors = $user->getErrors();
+			throw new \Exception(print_r($this->_errors, true));
 		}
 		catch(\Exception $e)
 		{
@@ -69,7 +71,10 @@ class UserManager extends \CComponent
 				if($user->save())
 					return true;
 				else
-					throw new \Exception(print_r($user->getErrors(), true));
+				{
+					$this->_errors = $user->getErrors();
+					throw new \Exception(print_r($this->_errors, true));
+				}
 			}
 			else
 				throw new \Exception('User not found : ' . $username);
@@ -90,5 +95,14 @@ class UserManager extends \CComponent
 	public function getErrorMessage()
     {
         return $this->_error_message;
+    }
+
+    /**
+     * Similarly to CModel::getErrors()
+     * @return array An array containing the validation errors.
+     */
+    public function getErrors()
+    {
+    	return $this->_errors();
     }
 }
