@@ -1,17 +1,12 @@
-i18n.controller('MessageController',
-    function($scope, $http, MessageModel){
+i18n.controller('SourceMessageController',
+    function($scope, $http, CrudModel){
 
         $scope.read = function ()
         {
-            MessageModel.read($http)
+            CrudModel.read($http)
                 .then(function(response){
-                    $scope.db.users = response.data;
+                    $scope.db.source_messages = response.data;
                 });
-        }
-
-        $scope.delete = function(email)
-        {
-            
         }
 
         //init start.

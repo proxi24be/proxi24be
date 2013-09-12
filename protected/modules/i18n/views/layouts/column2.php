@@ -15,7 +15,7 @@
                   'label'=>'I18N ADMINISTRATION', 
                   'itemOptions'=>array('class'=>'dropdown-header')
                 ),
-                            array('label'=>'Add message', 'url'=>array('/i18n/message/index')),
+                            array('label'=>'Edit meta tables', 'url'=>array('/i18n/default/index')),
                             array('label'=>'Other action', 'url'=>array('#')),
               )
           )

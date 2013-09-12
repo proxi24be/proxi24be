@@ -23,5 +23,3 @@
 	$this->endWidget();
 ?>
 </div>
-
-
