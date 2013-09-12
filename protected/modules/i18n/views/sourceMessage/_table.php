@@ -1,4 +1,5 @@
 <div class="col-md-6 col-xs-1">
+<div class="flash-message"></div>
 <?php
 	$this->beginWidget('ext.bootstrap.table.TableWidget', 
 		array(
@@ -8,12 +9,10 @@
 		));
 ?>
 <tr>
-    <td><input type="text" ng-model="new_source_message.category"/></td>
-    <td><input type="text" ng-model="new_source_message.message"/></td>
-    <td>
-        <button class='btn btn-primary' ng-click="update(source_message)">
-            <span class="glyphicon glyphicon-plus"></span> add</button>
-    </td>
+<td><input type="text" name="category" ng-model="new_source_message.category" placeholder="category"></td>
+<td><input type="text" name="message" ng-model="new_source_message.message" placeholder="message"></td>
+<td><button class='btn btn-primary' ng-click="create(new_source_message)">
+        <span class="glyphicon glyphicon-plus"></span> add</button></td>
 </tr>
 
 <tr ng-repeat = 'source_message in db.source_messages'>

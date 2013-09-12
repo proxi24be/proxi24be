@@ -7,8 +7,11 @@
 
 var myConfig = 
 {
-	angularUrl : "<?= Yii::app()->createAbsoluteUrl('/i18n/'); ?>",
-	sourceMessageUrl : "<?= Yii::app()->createAbsoluteUrl('/i18n/sourceMessage'); ?>",
+	url : 
+	{
+		application: "<?= Yii::app()->createAbsoluteUrl('/i18n/'); ?>",
+		SourceMessage: "<?= Yii::app()->createAbsoluteUrl('/i18n/sourceMessage'); ?>"
+	}
 }
 
 </script>

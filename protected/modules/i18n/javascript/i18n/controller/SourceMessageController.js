@@ -9,7 +9,36 @@ i18n.controller('SourceMessageController',
                 });
         }
 
+        $scope.create = function(model)
+        {
+            CrudModel.create($http, model)
+                .success(function(data, status){
+                    $scope.read();
+                })
+                .error(function(data, status){
+                    if(status == 400)
+                    {
+                        $('div.flash-message').html(BS_HELPER.flashMessage(data, 'alert-danger'));
+                    }
+                });
+        }
+
+        $scope.delete = function(model)
+        {
+            CrudModel.delete($http, model)
+                .success(function(data, status){
+                    $scope.read();
+                })
+                .error(function(data, status){
+                    if(status == 400)
+                    {
+                        $('div.flash-message').html(BS_HELPER.flashMessage(data, 'alert-danger'));
+                    }
+                });   
+        }
+
         //init start.
+        CrudModel.url = myConfig.url.SourceMessage;
         $scope.dataToCollect = {};
         $scope.db = {};
         $scope.read();
