@@ -49,8 +49,14 @@ class GenerateCommand extends CConsoleCommand
 
 	private function _createSkeletton($application_name, $module_name)
 	{
+		$date = date('d-m-Y h:m:s');
 		$content = file_get_contents($this->_template_folder . '/application.tpl');
-		$content = str_replace('{APPLICATION_NAME}', $application_name, $content);
+		$content = str_replace
+		(
+			array('{APPLICATION_NAME}', '{DATE}'),
+			array($application_name, $date),
+			$content
+		);
 		$path = Yii::getPathOfAlias('application.modules.' . $module_name . '.javascript');
 		$angular_application_path = strtolower("$path/$application_name");
 		$angular_controller_path = "$angular_application_path/controller";
@@ -72,7 +78,12 @@ class GenerateCommand extends CConsoleCommand
 			mkdir($angular_controller_path);
 
 		$content = file_get_contents($this->_template_folder . '/controller.tpl');
-		$content = str_replace('{APPLICATION_NAME}', $application_name, $content);
+		$content = str_replace
+		(
+			array('{APPLICATION_NAME}', '{DATE}'),
+			array($application_name, $date),
+			$content
+		);
 		file_put_contents("$angular_controller_path/DefaultController.js", $content);
 
 		// check if the model folder exists.
@@ -80,7 +91,12 @@ class GenerateCommand extends CConsoleCommand
 			mkdir($angular_model_path);
 
 		$content = file_get_contents($this->_template_folder . '/model.tpl');
-		$content = str_replace('{APPLICATION_NAME}', $application_name, $content);
+		$content = str_replace
+		(
+			array('{APPLICATION_NAME}', '{DATE}'),
+			array($application_name, $date),
+			$content
+		);
 		file_put_contents("$angular_model_path/CrudModel.js", $content);
 	}
 }

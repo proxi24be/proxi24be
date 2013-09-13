@@ -1,3 +1,7 @@
+/**
+ * Template generate on {DATE}
+ */
+
 {APPLICATION_NAME}.controller('DefaultController',
     function($scope, $http, CrudModel){
 

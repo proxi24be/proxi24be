@@ -1,3 +1,7 @@
+/**
+ * Template generate on {DATE}
+ */
+
 var {APPLICATION_NAME} = angular.module('{APPLICATION_NAME}',[]);
 
 var {APPLICATION_NAME}Config = function($routeProvider){
