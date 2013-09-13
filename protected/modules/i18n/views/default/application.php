@@ -1,5 +1,5 @@
 <?php 
-	$angularPath = Yii::getPathOfAlias('application.modules.i18n.javascript.i18n');
+	$angularPath = Yii::getPathOfAlias('application.modules.i18n.javascript.default');
 	$publish = Yii::app()->getAssetManager()->publish($angularPath);
 ?>
 
@@ -23,5 +23,3 @@ var myConfig =
 <script type="text/javascript" src="<?= $publish . '/i18n.js'?>"></script>
 <script type="text/javascript" src="<?= $publish . '/controller/SourceMessageController.js'?>"></script>
 <script type="text/javascript" src="<?= $publish . '/model/CrudModel.js'?>"></script>
-
-

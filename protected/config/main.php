@@ -95,7 +95,7 @@ return array(
                         ),
                         'helper'=>array(
                         	'basePath'=>'application.js.helper',
-                        	'js'=> array('bs_helper.js'),
+                        	'js'=> array('bs_helper.js', 'ang_helper.js'),
                     	)
                 	),
         ), // end clientscript

@@ -1,8 +1,8 @@
 /**
- * Template generate on {DATE}
+ * Template generate on 13-09-2013 04:09:41
  */
 
-{APPLICATION_NAME}.controller('DefaultController',
+Translation.controller('DefaultController',
     function($scope, $http, CrudModel){
 
         $scope.read = function ()

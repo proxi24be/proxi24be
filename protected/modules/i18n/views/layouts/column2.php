@@ -16,7 +16,7 @@
                   'itemOptions'=>array('class'=>'dropdown-header')
                 ),
                             array('label'=>'Edit meta tables', 'url'=>array('/i18n/default/index')),
-                            array('label'=>'Other action', 'url'=>array('#')),
+                            array('label'=>'Translation', 'url'=>array('/i18n/translation/index')),
               )
           )
         );
