@@ -13,4 +13,5 @@ class TranslationController extends CRUDController
 	{
 		$this->render('application');
 	}
+
 }

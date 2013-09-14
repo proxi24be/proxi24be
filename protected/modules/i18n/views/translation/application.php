@@ -1,5 +1,5 @@
 <?php 
-	$angularPath = Yii::getPathOfAlias(strtolower('application.modules.i18n.javascript.Translation'));
+	$angularPath = Yii::getPathOfAlias('application.modules.i18n.javascript.translation');
 	$publish = Yii::app()->getAssetManager()->publish($angularPath);
 ?>
 
@@ -9,7 +9,7 @@ var myConfig =
 {
 	url : 
 	{
-		application: "<?= Yii::app()->createAbsoluteUrl('/Translation/'); ?>",
+		application: "<?= Yii::app()->createAbsoluteUrl('i18n/translation/'); ?>",
 	}
 }
 

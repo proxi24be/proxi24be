@@ -42,5 +42,6 @@ Translation.controller('DefaultController',
         }
 
         //init start.
+        CrudModel.hello('bonjour');
         //init end.
 });

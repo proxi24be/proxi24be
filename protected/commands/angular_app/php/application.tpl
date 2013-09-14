@@ -1,5 +1,5 @@
 <?php 
-	$angularPath = Yii::getPathOfAlias(strtolower('application.modules.i18n.javascript.{APPLICATION_NAME}'));
+	$angularPath = Yii::getPathOfAlias('application.modules.i18n.javascript.{application_name}');
 	$publish = Yii::app()->getAssetManager()->publish($angularPath);
 ?>
 
@@ -9,13 +9,13 @@ var myConfig =
 {
 	url : 
 	{
-		application: "<?= Yii::app()->createAbsoluteUrl('/{APPLICATION_NAME}/'); ?>",
+		application: "<?= Yii::app()->createAbsoluteUrl('{MODULE_NAME}/{application_name}/'); ?>",
 	}
 }
 
 </script>
 
-<div id='ng-app' ng-app='{APPLICATION_NAME}' class='ng-app:{APPLICATION_NAME}'>
+<div id="ng-app" ng-app="{APPLICATION_NAME}" class="ng-app:{APPLICATION_NAME}">
     	<div ng-view><!--The content is dynamically replaced--></div>	
 </div>
 
