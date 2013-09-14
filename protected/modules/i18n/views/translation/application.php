@@ -9,7 +9,8 @@ var myConfig =
 {
 	url : 
 	{
-		application: "<?= Yii::app()->createAbsoluteUrl('/Translation/'); ?>",
+		application: "<?= Yii::app()->createAbsoluteUrl('i18n/translation/'); ?>",
+		SourceMessage: "<?= Yii::app()->createAbsoluteUrl('i18n/sourceMessage/'); ?>",
 	}
 }
 

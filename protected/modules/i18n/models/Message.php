@@ -20,7 +20,15 @@ class Message extends I18NActiveRecord
     public function rules()
     {
         return array(
-            array('language, translation', 'required'),
+            array('id, language, translation', 'required'),
+        );
+    }
+
+    public function relations()
+    {
+        return array(
+           'source_message'=>array(self::BELONGS_TO, 'SourceMessage', 'id'),
+           'rel_language'=>array(self::BELONGS_TO, 'Language', 'language'),
         );
     }
 
