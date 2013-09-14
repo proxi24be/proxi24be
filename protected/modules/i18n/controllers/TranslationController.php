@@ -14,4 +14,11 @@ class TranslationController extends CRUDController
 		$this->render('application');
 	}
 
+<<<<<<< HEAD
+=======
+	public function actionDefault()
+	{
+		$this->renderPartial('_application');
+	}
+>>>>>>> 0f02f250a4a8e0df8d4c9de416a008be0f926c2b
 }

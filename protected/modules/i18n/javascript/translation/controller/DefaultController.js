@@ -10,6 +10,7 @@ Translation.controller('DefaultController',
             CrudModel.read($http)
                 .then(function(response){
                     // instruction to perform.
+                    $scope.db.source_messages = response.data;
                 });
         }
 
@@ -41,7 +42,19 @@ Translation.controller('DefaultController',
                 });   
         }
 
+        $scope.getTranslation = function(model)
+        {
+            console.log(model);
+        }
+
         //init start.
+<<<<<<< HEAD
         CrudModel.hello('bonjour');
+=======
+        $scope.dataToCollect = {};
+        $scope.db = {};
+        CrudModel.url = myConfig.url.SourceMessage;
+        $scope.read();
+>>>>>>> 0f02f250a4a8e0df8d4c9de416a008be0f926c2b
         //init end.
 });
