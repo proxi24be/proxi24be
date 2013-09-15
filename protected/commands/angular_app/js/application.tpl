@@ -1,6 +1,4 @@
-/**
- * Template generate on {DATE}
- */
+{VERSION}
 
 var {APPLICATION_NAME} = angular.module('{APPLICATION_NAME}',[]);
 

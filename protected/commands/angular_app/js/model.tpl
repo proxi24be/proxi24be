@@ -1,5 +1,3 @@
-/**
- * Template generate on {DATE}
- */
+{VERSION}
 
 {APPLICATION_NAME}.service('CrudModel', CRUD_MODEL);

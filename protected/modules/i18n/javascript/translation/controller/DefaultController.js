@@ -1,16 +1,21 @@
 /**
- * Template generate on 13-09-2013 04:09:41
+ * Template generated on 15-Sep-2013 00:09:40
  */
 
 Translation.controller('DefaultController',
-    function($scope, $http, CrudModel){
+    function($scope, $http, SourceMessageModel, MessageModel, LanguageModel){
 
         $scope.read = function ()
         {
-            CrudModel.read($http)
+            SourceMessageModel.read($http)
                 .then(function(response){
                     // instruction to perform.
                     $scope.db.source_messages = response.data;
+                });
+
+            LanguageModel.read($http)
+                .then(function(response){
+                    $scope.db.languages = response.data;
                 });
         }
 
@@ -44,17 +49,36 @@ Translation.controller('DefaultController',
 
         $scope.getTranslation = function(model)
         {
-            console.log(model);
+            MessageModel.read($http)
+                .then(function(response){
+                    $scope.db.messages = response.data;
+                });
+        }
+
+        $scope.createMessage = function(new_message, source_message)
+        {
+            if(new_message != undefined && source_message != undefined)
+            {
+                new_message.id = source_message.id;
+                MessageModel.create($http, new_message)
+                .success(function(data, status){
+                    
+                })
+                .error(function(data, status){
+                    console.log(data);
+                });    
+            }
+            else
+                console.log('missing attributes');
         }
 
         //init start.
-<<<<<<< HEAD
-        CrudModel.hello('bonjour');
-=======
-        $scope.dataToCollect = {};
         $scope.db = {};
-        CrudModel.url = myConfig.url.SourceMessage;
+        $scope.data_to_collect = {};
+        temp = angular.extend({}, new CRUD_MODEL());
+        SourceMessageModel = angular.extend(temp, SourceMessageModel);
+        MessageModel = angular.extend(MessageModel, new CRUD_MODEL());
+        LanguageModel = angular.extend(LanguageModel, new CRUD_MODEL());
         $scope.read();
->>>>>>> 0f02f250a4a8e0df8d4c9de416a008be0f926c2b
         //init end.
 });

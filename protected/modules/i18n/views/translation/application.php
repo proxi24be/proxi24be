@@ -10,19 +10,18 @@ var myConfig =
 	url : 
 	{
 		application: "<?= Yii::app()->createAbsoluteUrl('i18n/translation/'); ?>",
-<<<<<<< HEAD
-=======
-		SourceMessage: "<?= Yii::app()->createAbsoluteUrl('i18n/sourceMessage/'); ?>",
->>>>>>> 0f02f250a4a8e0df8d4c9de416a008be0f926c2b
+		source_message: "<?= Yii::app()->createAbsoluteUrl('i18n/sourceMessage/'); ?>",
+		message: "<?= Yii::app()->createAbsoluteUrl('i18n/message/'); ?>",
+		language: "<?= Yii::app()->createAbsoluteUrl('i18n/language/'); ?>",
 	}
 }
 
 </script>
 
-<div id='ng-app' ng-app='Translation' class='ng-app:Translation'>
+<div id="ng-app" ng-app="Translation" class="ng-app:Translation">
     	<div ng-view><!--The content is dynamically replaced--></div>	
 </div>
 
 <script type="text/javascript" src="<?= $publish . '/Translation.js'?>"></script>
 <script type="text/javascript" src="<?= $publish . '/controller/DefaultController.js'?>"></script>
-<script type="text/javascript" src="<?= $publish . '/model/CrudModel.js'?>"></script>
+<script type="text/javascript" src="<?= $publish . '/model/models.js'?>"></script>

@@ -2,7 +2,7 @@
 
 class JsSkeleton extends Skeleton
 {
-	public function create($application_name)
+	public function create($application_name, $module_name = null)
 	{
 		
 		$date = date('d-m-Y h:m:s');

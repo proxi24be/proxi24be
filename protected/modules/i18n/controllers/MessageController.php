@@ -21,21 +21,11 @@ class MessageController extends CrudController
 		// 	}	
 		// }
 		
-		$model = Message::model()->findByAttributes(array('id'=>4));
+		$model = Message::model()->findByAttributes(array('id'=>12));
 		if($model != null)
 		{
 			echo json_encode($model->source_message);
 			echo json_encode($model->rel_language);
 		}	
-	}
-
-	public function actionCreate()
-	{
-		$model = new Message();
-		$model->attributes = array('id'=> 4, 'language'=>'fr', 'translation'=>'bonjour');
-		if($model->save())
-			echo 'object created.';
-		else
-			print_r($model->getErrors());
 	}
 }

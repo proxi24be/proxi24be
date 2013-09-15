@@ -39,7 +39,7 @@ class GenerateCommand extends CConsoleCommand
 				$js_skeleton->create($angular_app);
 
 				$php_skeleton = new PhpSkeleton($path, Yii::getPathOfAlias('application.commands.angular_app.php'));
-				$php_skeleton->create($angular_app);
+				$php_skeleton->create($angular_app, $module_name);
 				echo 'The skeleton has been created !' . PHP_EOL;
 			}
 			else
